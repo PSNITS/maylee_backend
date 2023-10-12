@@ -25,10 +25,7 @@ app.post("/api/create-checkout-session",async(req,res)=>{
             unit_amount:products.amount * 100,
         },
         quantity:1,
-    }));
-
-    console.log(lineItems);
-    
+    }));    
     
     const session = await stripe.checkout.sessions.create({
         payment_method_types:["card"],
