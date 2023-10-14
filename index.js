@@ -28,7 +28,7 @@ app.post("/api/create-checkout-session",async(req,res)=>{
         payment_method_types:["card"],
         line_items:lineItems,
         mode:"payment",
-        success_url:"https://test-v.mayleefun.xxx/success",
+        success_url:"https://test-v.mayleefun.xxx/sucess",
         cancel_url:"https://test-v.mayleefun.xxx/cancel"
     })
 
