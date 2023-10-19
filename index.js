@@ -7,11 +7,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}))
 
-const stripe = require("stripe")('sk_test_51Nen7hFpqCcVujOth5gJ7Y9SSImVsnFzXOuVxADd3cwX2ILLRz3lMADgsKRbCwkM57egqdQGeTThkxHA2TGEz18S00XdyXfiTa');
+const stripe = require("stripe")('sk_test_51O2w1hSHfDPurRx8DryI8h7lmMGB6INrndY63E9VenCnPx6jhqe7ACfQ8xwFoyQjyX6mjgkjcrdyT5T6oL8RWvGM00rvEzg6qX');
 
 app.use(express.static("public"));
 app.use(express.json());
-
 const calculateOrderAmount = (items) => {
   // Replace this constant with a calculation of the order's amount
   // Calculate the order total on the server to prevent
@@ -38,6 +37,10 @@ app.post("/create-payment-intent", async (req, res) => {
   res.send({
     clientSecret: paymentIntent.client_secret,
   });
+});
+
+app.get("/",(req,res)=>{
+  res.send("successful");
 });
 
 
