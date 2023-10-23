@@ -20,6 +20,7 @@ const calculateOrderAmount = (items) => {
 
 app.post("/create-payment-intent", async (req, res) => {
   const { items } = req.body;
+  console.log(items);
   const prc = items.price
   const name = items.name;
   // Create a PaymentIntent with the order amount and currency
@@ -32,7 +33,7 @@ app.post("/create-payment-intent", async (req, res) => {
       enabled: true,
     },
   });
-  console.log(paymentIntent);
+  // console.log(paymentIntent);
 
   res.send({
     clientSecret: paymentIntent.client_secret,
@@ -40,8 +41,8 @@ app.post("/create-payment-intent", async (req, res) => {
 });
 
 app.get("/",(req,res)=>{
-  res.send("successful");
-});
+  res.send("success")
+})
 
 
-app.listen(4000, () => console.log("Node server listening on port 4242!"));
+app.listen(4000, () => console.log("http://localhost:4000"));
